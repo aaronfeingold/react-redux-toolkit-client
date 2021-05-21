@@ -1,23 +1,5 @@
-import {createAsyncThunk, createSlice } from '@reduxjs/toolkit';
-import { api } from '../axiosApi'
-
-// ACTIONS
-// UseEffect calls on page load
-export const fetchPosts = createAsyncThunk(
-  "posts/fetchPosts",
-  async () => {
-    const response = await api.get('/posts');
-    return response.data
-  });
-
-// post to Express/Mongo
-export const saveNewPost = createAsyncThunk(
-  "posts/saveNewPost",
-  async (post) => {
-    const response = await api.post('/posts', post);
-    return response.data
-  }
-)
+import { createSlice } from '@reduxjs/toolkit';
+import {fetchPosts, saveNewPost} from '../services/postDataService'
 
 // set initial state of slice of store
 export const initialState = {

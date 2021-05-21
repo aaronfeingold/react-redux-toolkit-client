@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { nanoid } from "@reduxjs/toolkit"
-import { fetchPosts } from '../slices/postSlice';
+import { fetchPosts } from '../services/postDataService';
 import Post from "../components/Post"
 import ErrorMessage from './ErrorMessage';
 

@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux'
-import { saveNewPost } from '../slices/postSlice';
+import { saveNewPost } from '../services/postDataService';
 import PostForm from '../components/PostForm'
-// import { unwrapResult } from '@reduxjs/toolkit';
 import PostsList from "../components/PostsList"
 
 const initialPostState = { id: null, title: ""}

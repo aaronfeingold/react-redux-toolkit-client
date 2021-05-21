@@ -1,5 +1,5 @@
 const PostForm = (props) => {
-
+  
   return(
 
     <div className="form">

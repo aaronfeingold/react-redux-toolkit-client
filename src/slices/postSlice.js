@@ -12,9 +12,11 @@ export const initialState = {
 const postSlice = createSlice({
   name: 'posts',
   initialState,
-  reducers: {},
+  reducers: {
+    resetStatus(state) {state.status = 'idle'}
+  },
   extraReducers: {
-    [fetchPosts.pending]: (state, action) => {
+    [fetchPosts.pending]: (state) => {
       state.status = 'loading';
     },
     [fetchPosts.fulfilled]: (state, action) => {
@@ -26,15 +28,22 @@ const postSlice = createSlice({
       state.error = action.error.message;
     },
     [saveNewPost.fulfilled]: (state, action) => {
-      const post = action.payload
-      state.posts.push(post)
+      const post = action.payload;
+      const errors = (post["errors"]) ? post["errors"] : null;
+      if (!!errors){
+        state.status = 'failed'
+        state.error = errors
+      } else {
+        state.posts.push(post)
+      }
     },
     [saveNewPost.rejected]: (state, action) => {
       state.status = 'failed'
-      state.error = action.error.message
-    }
-  }
+      state.error = action.error
+  },
+}
 });
-  
+
+export const { resetStatus } = postSlice.actions
 export default postSlice.reducer
 

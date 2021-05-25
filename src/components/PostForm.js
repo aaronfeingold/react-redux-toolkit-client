@@ -12,9 +12,9 @@ const PostForm = (props) => {
         </div>
       ):(
         <form onSubmit={props.submitPost}>
-          <div class="mb-3">
-            <label htmlFor="title" class="form-label"> Title </label>
-            <div class="col-sm-10">
+          <div className="mb-3">
+            <label htmlFor="title" className="form-label"> Enter a number </label>
+            <div className="col-sm-10">
               <input name='title' type='text' value={props.post.title}
                 onChange={ e => props.onChange("title", e.target.value)}
               />

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { saveNewPost } from '../services/postDataService';
+import { resetStatus } from '../slices/postSlice'
 import PostForm from '../components/PostForm'
 import PostsList from "../components/PostsList"
 
@@ -10,6 +11,7 @@ function AddPost() {
   const dispatch = useDispatch()
 	const [post, setPost] = useState(initialPostState)
 	const [submitted, setSubmitted] = useState(false)
+	const apiStatus = useSelector(state => state.posts.status);
 
   const submitPost = (e) => {
 		console.log(post)
@@ -23,6 +25,7 @@ function AddPost() {
 	const initialPost = () => {
 		setPost(initialPostState)
 		setSubmitted(false)
+		dispatch(resetStatus())
 	}
 
   const onChange = (type, value) => {
@@ -32,7 +35,7 @@ function AddPost() {
   return(
 		<div className="container-fluid">
 			<PostForm post={post} onChange={onChange} submitted={submitted} initialPost={initialPost} submitPost={submitPost}/>
-			<PostsList submitted={submitted}/>
+			<PostsList apiStatus={apiStatus}/>
 		</div>
 		);
 }

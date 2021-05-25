@@ -5,10 +5,9 @@ import { fetchPosts } from '../services/postDataService';
 import Post from "../components/Post"
 import ErrorMessage from './ErrorMessage';
 
-const PostsList = ({submitted}) => {
+const PostsList = ({apiStatus}) => {
   let dispatch = useDispatch();
   let postsData = useSelector(state => state.posts.posts)
-  let apiStatus = useSelector(state => state.posts.status);
   let apiErrorMessage = useSelector(state => state.posts.error);
 
   useEffect(()=> {

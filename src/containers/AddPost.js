@@ -14,7 +14,6 @@ function AddPost() {
 	const apiStatus = useSelector(state => state.posts.status);
 
   const submitPost = (e) => {
-		console.log(post)
 		e.preventDefault()
 		if ( post.title !== ''){
 			dispatch(saveNewPost(post))

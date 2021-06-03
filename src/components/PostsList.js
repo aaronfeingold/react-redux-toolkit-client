@@ -1,20 +1,12 @@
-import React, { useEffect } from 'react'
-import { useDispatch, useSelector } from 'react-redux';
+import React from 'react'
+import { useSelector } from 'react-redux';
 import { nanoid } from "@reduxjs/toolkit"
-import { fetchPosts } from '../services/postDataService';
 import Post from "../components/Post"
 import ErrorMessage from './ErrorMessage';
 
 const PostsList = ({apiStatus}) => {
-  let dispatch = useDispatch();
   let postsData = useSelector(state => state.posts.posts)
   let apiErrorMessage = useSelector(state => state.posts.error);
-
-  useEffect(()=> {
-    if (apiStatus === 'idle') {
-      dispatch(fetchPosts());
-    }
-  }, [apiStatus, dispatch]);
 
   return(
     <>

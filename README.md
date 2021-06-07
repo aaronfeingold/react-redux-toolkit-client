@@ -8,13 +8,15 @@ Next, use npm install to download dependencies.
 
 Run npm start to view client in browser at port 3000 (details below)
 
-Services are set to post to port:8080 for an express.js server you can find and run here:
+For development, make sure to change URL in axiosApi.
+
+Need a backendAPI example? Here's an express.js server:
 
 https://github.com/aaronfeingold/express-validator-proj
 
-Deployed site visible here:
+Deployed at:
 
-SOME WEBSITE COMMING SOON
+https://code-willing-frontend.netlify.app
 
 ## Available Scripts
 

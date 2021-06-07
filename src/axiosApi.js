@@ -1,12 +1,7 @@
 import axios from 'axios'
 
-// production url
-const baseURL = "https://express-validator-proj.herokuapp.com/api"
-// development url
-// const baseURL = "http://localhost:8080/api"
-
 export const api = axios.create({
-  baseURL: {baseURL},
+  baseURL: "https://express-validator-proj.herokuapp.com/api",
   headers: {
     "Content-type": "application/json"
   }

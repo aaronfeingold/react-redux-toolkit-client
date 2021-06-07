@@ -10,7 +10,7 @@ Run npm start to view client in browser at port 3000 (details below)
 
 For development, make sure to change URL in axiosApi.
 
-Need a backendAPI example? Here's an express.js server:
+Need a backend API example? Here's an express.js server:
 
 https://github.com/aaronfeingold/express-validator-proj
 
